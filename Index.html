@@ -1,0 +1,43 @@
+
+<html>
+<head>
+<script src="jquery.js"></script>
+</head>
+
+<body>
+
+
+
+<script>
+$(document).ready(function(){
+$("#passgen").click(function (){
+	$("input[name='password']").val(generateHexString(26));
+    });
+});
+
+function generateHexString(length) {
+  var ret = "";
+  while (ret.length < length) {
+    ret += Math.random().toString(16).substring(2);
+  }
+  return ret.substring(0,length);
+}
+</script>
+
+<br>
+<p>
+
+Select a file: <input type="file" id="file0">
+<br><br>
+
+Password (encryption key): <input type="text" id="password" name="password" size="64"> <button id="passgen">Generate Password</button>
+
+<br><br>
+<button id="submit">Submit</button>
+
+
+</p>
+
+
+</body>
+</html>
